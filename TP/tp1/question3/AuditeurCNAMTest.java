@@ -3,8 +3,8 @@ package question3;
 /**
  * Classe-test AuditeurCNAMTest.
  * 
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * @author Jalal Hassane
+ * @version 06/03/2019
  * 
  *          Les classes-test sont documentées ici :
  *          http://junit.sourceforge.net/javadoc/junit/framework/TestCase.html
@@ -29,7 +29,7 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
     // à l'aide du menu contextuel "Présentoir --> Engagements".
     // Notez cependant que ce dernier ne peut saisir les objets primitifs
     // du présentoir (les objets sans constructeur, comme int, float, etc.).
-
+    private AuditeurCNAM auditeur1,auditeur2,auditeur3;
     /**
      * Constructeur de la classe-test AuditeurCNAMTest.
      */
@@ -43,8 +43,12 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
      */
     protected void setUp() // throws java.lang.Exception
     {
-        // Initialisez ici vos engagements
+        auditeur1 = new AuditeurCNAM("Hass-Ane#$ee","JALAL","1000f");
+        auditeur2 = new AuditeurCNAM("","Cnam","9506f");
+        auditeur3 = new AuditeurCNAM("","","");
+        
     }
+    
 
     /**
      * Supprime les engagements
@@ -53,7 +57,9 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
      */
     protected void tearDown() // throws java.lang.Exception
     {
-        // Libérez ici les ressources engagées par setUp()
+        auditeur1 = null;
+        auditeur2 = null;
+        auditeur3 = null;
     }
 
     /*
@@ -64,6 +70,21 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
      * "Enregistrer une méthode de test".
      */
 
+    /** test si une des variables d'instance est un string vide ""
+     * le test echoue si l'une des variables est un string vide
+    */
+    public void testNomOuPrenomOuMatriculeVide(){
+        assertTrue(auditeur1.nom().equals(""));
+        assertTrue(auditeur1.prenom().equals(""));
+        assertTrue(auditeur1.matricule().equals(""));
+        assertTrue(auditeur2.nom().equals(""));
+        assertTrue(auditeur2.prenom().equals(""));
+        assertTrue(auditeur2.matricule().equals(""));
+        assertTrue(auditeur3.nom().equals(""));
+        assertTrue(auditeur3.prenom().equals(""));
+        assertTrue(auditeur3.matricule().equals(""));
+
+    }
     /** Un test de la méthode toString(). */
     public void test_toString() {
         question3.AuditeurCNAM auditeur1 = new question3.AuditeurCNAM("Dupont",
@@ -122,4 +143,6 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
         assertEquals(" nom avec accent (é devient e) ? ", "chloe_c",
             auditeur1.login());
     }
+    
+    
 }

@@ -4,7 +4,7 @@ package question3;
  * NFP121 TpIntroduction, usage de BlueJ et du "Submitter".
  * 
  * @version septembre 2009
- * @author à compléter
+ * @author Jalal Hassane
  * @see java.lang.String, java.lang.Math
  */
 public class AuditeurCNAM {
@@ -45,7 +45,16 @@ public class AuditeurCNAM {
      *         homonymes...
      */
     public String login() {
-        return "";// à compléter
+        String login = "";
+        if(nom.length()>=7){
+            login = this.nom.substring(0,6).toLowerCase()
+            .replaceAll("[^A-Za-z0-9]","_");
+        }else{
+            login = this.nom.toLowerCase().replaceAll("[^A-Za-z0-9]","_");
+        }
+        login+= "_" +this.prenom.substring(0,1).toLowerCase()
+        .replaceAll("[^A-Za-z0-9]","_");                
+        return login;
     }
 
     /**
@@ -54,7 +63,7 @@ public class AuditeurCNAM {
      * @return son nom
      */
     public String nom() {
-        return null;// à compléter
+        return this.nom.replaceAll("[^A-Za-z0-9]","_");
     }
 
     /**
@@ -63,7 +72,7 @@ public class AuditeurCNAM {
      * @return son prénom
      */
     public String prenom() {
-        return null;// à compléter
+        return this.prenom.replaceAll("[^A-Za-z0-9]","_");
     }
 
     /**
@@ -72,7 +81,7 @@ public class AuditeurCNAM {
      * @return son matricule
      */
     public String matricule() {
-        return null;// à compléter
+        return this.matricule.replaceAll("[^A-Za-z0-9]","_");
     }
 
     /**
