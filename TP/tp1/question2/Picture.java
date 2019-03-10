@@ -20,6 +20,7 @@ public class Picture {
     private Square window;
     private Triangle roof;
     private Circle sun;
+    private Circle sun1;
 
     /**
      * Constructor for objects of class Picture
@@ -50,11 +51,18 @@ public class Picture {
         roof.makeVisible();
 
         sun = new Circle();
-        sun.changeColor("yellow");
+        sun.changeColor("blue");
         sun.moveHorizontal(180);
         sun.moveVertical(-10);
         sun.changeSize(60);
         sun.makeVisible();
+        
+        sun1 = new Circle();
+        sun1.changeColor("yellow");
+        sun1.moveHorizontal(110);
+        sun1.moveVertical(-10);
+        sun1.changeSize(60);
+        sun1.makeVisible();
     }
 
     /**
@@ -79,8 +87,19 @@ public class Picture {
             wall.changeColor("red");
             window.changeColor("black");
             roof.changeColor("green");
-            sun.changeColor("yellow");
+            sun.changeColor("blue");
         }
     }
+    
+    /**
+     * Si la terre est fixe(true pour fixe), le soleil bleu doit se coucher
+     * sinon rien ne se fait
+    */
+    public void seCoucher(boolean f){
+        if(f){
+            sun.slowMoveVertical(-85);
+        }
+    }
+    
 
 }
