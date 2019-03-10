@@ -95,8 +95,8 @@ public class Picture {
      * Si la terre est fixe(true pour fixe), le soleil bleu doit se coucher
      * sinon rien ne se fait
     */
-    public void seCoucher(boolean fixe){
-        if(fixe){
+    public void seCoucher(boolean terreFixe){
+        if(terreFixe){
             sun.slowMoveVertical(-85);
         }
     }
